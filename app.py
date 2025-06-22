@@ -1,4 +1,4 @@
-# app.py - Updated to match the screenshot UI
+# app.py - Updated to match the screenshot UI and address deprecation warnings
 
 import streamlit as st
 import torch
@@ -100,9 +100,8 @@ if st.button("Generate Images"):
     cols = st.columns(num_images_to_generate)
     for i, img in enumerate(display_images):
         with cols[i]:
-            # You might need to adjust the width parameter for st.image to make them look good.
-            # 150 pixels seems reasonable for 28x28 images.
-            st.image(img, caption="", use_column_width=False, width=150)
+            # Updated: Replaced 'use_column_width' with 'use_container_width'
+            st.image(img, caption="", use_container_width=False, width=150)
 
 # Optional: Add a footer or attribution
 st.markdown("---")
